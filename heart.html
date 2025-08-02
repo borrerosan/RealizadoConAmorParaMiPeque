@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El corazon del codigo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+    }
+
+    .sky {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .mask-container {
+      position: relative;
+      width: 325px;
+      height: 300px;
+      transform-origin: center center;
+    }
+
+    .mask-heart {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 230px;
+      z-index: 1;
+      display: none;
+    }
+
+    .box {
+      position: absolute;
+      width: 100px;
+      height: 125px;
+      border: 1px solid black;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    .box1 { top: 50px; left: -100px; }
+    .box2 { top: 170px; left: -70px; }
+    .box3 { top: 270px; left: 15px; }
+    .box4 { top: 320px; left: 103px; }
+    .box5 { top: 270px; left: 195px; }
+    .box6 { top: 170px; left: 285px; }
+    .box7 { top: 50px; left: 315px; }
+    .box8 { top: -140px; left: 25px; }
+    .box9 { top: -60px; left: 285px; }
+    .box10 { top: -60px; left: -70px; }
+    .box11 { top: -140px; left: 205px; }
+    .box12 { top: -50px; left: 117.5px; }
+
+    /* Escalado responsivo */
+    @media (max-width: 768px) {
+      .mask-container {
+        transform: scale(0.75);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .mask-container {
+        transform: scale(0.55);
+      }
+    }
+
+    .btn-container {
+      position: fixed;
+      bottom: 20px;
+      right: 5px;
+      display: flex;
+      gap: 10px;
+      z-index: 999;
+    }
+
+    .toggle-btn {
+      color: black;
+      border: none;
+      border-radius: 10px;
+      font-size: 15px;
+      cursor: pointer;
+      padding: 5px 18px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.2s ease;
+      font-family: 'Poppins', sans-serif;
+      background-color: #d8b4f8;
+    }
+
+    .toggle-btn:hover {
+      background-color: #e9d5ff;
+      box-shadow: 0 6px 15px rgba(216, 180, 248, 0.5);
+      transform: scale(1.05);
+    }
+
+    .heart-gallery {
+      display: none;
+      grid-template-columns: repeat(8, 55px);
+      grid-auto-rows: 40px;
+      gap: 5px;
+      position: relative;
+    }
+  
+    @media (max-width: 425px) {
+      .heart-gallery {
+        display: none;
+        grid-template-columns: repeat(8, 30px);
+        grid-auto-rows: 20px;
+        gap: 5px;
+        position: relative;
+      }
+    }
+    
+
+    .heart-gallery .sizeImg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .positionImg1{ grid-column: 2 / span 2; grid-row: 1 / span 2; }
+    .positionImg2{ grid-column: 6 / span 2; grid-row: 1 / span 2; }
+    .positionImg3{ grid-column: 1 / span 2; grid-row: 3 / span 2; }
+    .positionImg4{ grid-column: 3 / span 2; grid-row: 3 / span 2; }
+    .positionImg5{ grid-column: 5 / span 2; grid-row: 3 / span 2; }
+    .positionImg6{ grid-column: 7 / span 2; grid-row: 3 / span 2; }
+    .positionImg7{ grid-column: 2 / span 2; grid-row: 5 / span 2; }
+    .positionImg8{ grid-column: 4 / span 2; grid-row: 5 / span 2; }
+    .positionImg9{ grid-column: 6 / span 2; grid-row: 5 / span 2; }
+    .positionImg10{ grid-column: 3 / span 2; grid-row: 7 / span 2; }
+    .positionImg11{ grid-column: 5 / span 2; grid-row: 7 / span 2; }
+    .positionImg12{ grid-column: 4 / span 2; grid-row: 9 / span 2; }
+  </style>
+</head>
+<body style="background-color: rgb(75, 0, 130);">
+  <div class="sky">
+    <div class="mask-container" id="maskContainer">
+      <a href="collage.html" style="text-decoration: none;">
+        <div class="mask-heart" id="heart">💜</div>
+      </a>
+      <img src="/img/IMG_6287.jpg" class="box box12">
+      <img src="/img/IMG_5937.jpg" class="box box11">
+      <img src="/img/IMG_5936.jpg" class="box box10">
+      <img src="/img/IMG_5935.jpg" class="box box9">
+      <img src="/img/IMG_5934.jpg" class="box box8">
+      <img src="/img/IMG_5931.jpg" class="box box5">
+      <img src="/img/IMG_5932.jpg" class="box box6">
+      <img src="/img/IMG_6288.jpg" class="box box7">
+      <img src="/img/IMG_5928.jpg" class="box box3">
+      <img src="/img/IMG_5925.jpg" class="box box2">
+      <img src="/img/IMG_5924.jpg" class="box box1">
+      <img src="/img/IMG_5929.jpg" class="box box4">
+    </div>
+    <div class="heart-gallery" id="heartGallery">
+      <img src="/img/IMG_6287.jpg" class="sizeImg positionImg1">
+      <img src="/img/IMG_5937.jpg" class="sizeImg positionImg2">
+      <img src="/img/IMG_5936.jpg" class="sizeImg positionImg3">
+      <img src="/img/IMG_5935.jpg" class="sizeImg positionImg4">
+      <img src="/img/IMG_5934.jpg" class="sizeImg positionImg5">
+      <img src="/img/IMG_5931.jpg" class="sizeImg positionImg6">
+      <img src="/img/IMG_5932.jpg" class="sizeImg positionImg7">
+      <img src="/img/IMG_6288.jpg" class="sizeImg positionImg8">
+      <img src="/img/IMG_5928.jpg" class="sizeImg positionImg9">
+      <img src="/img/IMG_5924.jpg" class="sizeImg positionImg10">
+      <img src="/img/IMG_5925.jpg" class="sizeImg positionImg11">
+      <img src="/img/IMG_5929.jpg" class="sizeImg positionImg12">
+    </div>
+  </div>
+  <div class="btn-container">
+    <button class="toggle-btn" id="toggleBtn">Presiona aquí</button>
+    <button class="toggle-btn" id="changeBtn">Cambiar forma</button>
+  </div>
+  
+  <script>
+    const heart = document.getElementById('heart');
+    const toggleBtn = document.getElementById('toggleBtn');
+    const changeBtn = document.getElementById('changeBtn');
+    const heartGallery = document.getElementById('heartGallery');
+    const maskContainer = document.getElementById('maskContainer');
+
+    toggleBtn.addEventListener('click', () => {
+      heart.style.display = (heart.style.display === 'none' || heart.style.display === '') ? 'block' : 'none';
+    });
+
+    changeBtn.addEventListener('click', () => {
+      const isGalleryVisible = heartGallery.style.display === 'grid';
+
+      // Mostrar galería o el corazón con fotos
+      heartGallery.style.display = isGalleryVisible ? 'none' : 'grid';
+      maskContainer.style.display = isGalleryVisible ? 'block' : 'none';
+
+      // Ocultar el corazón
+      if (!isGalleryVisible) {
+        heart.style.display = 'none';
+      }
+
+      // Mostrar botón "Presiona aquí"
+      toggleBtn.style.display = isGalleryVisible ? 'block' : 'none';
+    });
+
+    // Al cargar, asegúrate de que:
+    window.addEventListener('DOMContentLoaded', () => {
+      heart.style.display = 'none';
+      heartGallery.style.display = 'none';
+      maskContainer.style.display = 'block';
+      toggleBtn.style.display = 'block'; // mostrar el botón inicialmente
+    });
+  </script>
+</body>
+</html>
